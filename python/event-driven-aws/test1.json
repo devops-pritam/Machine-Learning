@@ -1,0 +1,12 @@
+[{"sensorId": 18, "currentTemperature": 120, "status": "FAIL"},
+{"sensorId": 19, "currentTemperature": 30, "status": "PASS"},
+{"sensorId": 20, "currentTemperature": 20, "status": "PASS"},
+{"sensorId": 21, "currentTemperature": 48, "status": "PASS"},
+{"sensorId": 22, "currentTemperature": 60, "status": "FAIL"},
+{"sensorId": 23, "currentTemperature": 12, "status": "PASS"},
+{"sensorId": 24, "currentTemperature": 150, "status": "FAIL"},
+{"sensorId": 25, "currentTemperature": 110, "status": "FAIL"},
+{"sensorId": 26, "currentTemperature": 90, "status": "FAIL"},
+{"sensorId": 27, "currentTemperature": 45, "status": "PASS"},
+{"sensorId": 28, "currentTemperature": 34, "status": "PASS"},
+{"sensorId": 29, "currentTemperature": 120, "status": "FAIL"}]
