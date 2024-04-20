@@ -1,0 +1,43 @@
+import base64
+import json
+
+print('Loading function')
+
+
+def lambda_handler(event, context):
+    output = []
+    my_dict = {}
+
+    for record in event['records']:
+        print(record['recordId'])
+        payload = base64.b64decode(record['data']).decode('utf-8')
+        # print raw payload
+        print('RAW PAYLOAD : {}'.format(payload))
+        print('Type PAYLOAD : {}'.format(type(payload)))
+        # As the payload type is string we need to convert it to dictionary
+        result = json.loads(payload)
+        # Do custom processing on the payload here
+
+        output_record = {
+            'recordId': record['recordId'],
+            'result': 'Ok',
+            'data': base64.b64encode(payload.encode('utf-8')).decode('utf-8')
+        }
+        output.append(output_record)
+        print(result)
+        print(result['dynamodb'].keys())
+        status = result['dynamodb']['NewImage']['status']['S']
+        print(status)
+        if status == 'PASS':
+          
+   
+          id = result['dynamodb']['NewImage']['sensorId']['N']
+          temp = result['dynamodb']['NewImage']['currentTemperature']['N']
+
+    
+          my_dict[id] = temp
+    print('Successfully processed {} records.'.format(len(event['records'])))
+    print(output)
+    print(my_dict)
+
+    return {'records': output}
